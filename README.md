@@ -4,6 +4,9 @@
 
 During my first month on balena I'll be doing a residency on the balenaLabs team. This means that I can choose any project I want and have a month to develop it! The main goal of the project is to do the onboarding process ( get acquainted with the way things work around here ) in a fun and productive way. 
 
+
+> Note that _the aim of the Residency is to get a project onto balenaHub and a blog post published. [...]We do need to get (at least an MVP of) a working, usable project onto Hub. What we want to avoid is making proof of concepts, or example repos - but nothing actually useful_.
+
 The first task is to decide what to work on. I have defined some restrictions or own goals about the project I'm about to start working on:
 
 1) Must be something that is interesting to me
@@ -30,7 +33,7 @@ SDR related projects:
 3) AM/FM radio
   - SDR: I have an SDR, but I haven't got time ( or just sat down ) to do anything besides some small toying with it
 4) GPS
-  - Would be good to understand how does it actually work, in terms of processing radio signals from sattelites. And how does the "interpolation" actually works? Everyone has a GPS on their phone or watch but how does this tiny device work?
+  - Would be good to understand how does it actually work, in terms of processing radio signals from satellites. And how does the "interpolation" actually works? Everyone has a GPS on their phone or watch but how does this tiny device work?
 
 ## Exploration
 
@@ -44,7 +47,9 @@ I did some exploration on option 4 ( GPS ). But I think I would spend too much t
 
 ### SDR
 
-What can you do with SDR?
+So I went to the web and found this nice summary:
+
+**What can you do with SDR?**
 
 	You can do various different things using an SDR as follows:
 
@@ -61,11 +66,62 @@ What can you do with SDR?
 		https://gnss-sdr.org/
 
 
+I explored several of the ones above
+
+- AM/FM radio receiver
+- GPS ( "Global Navigation satellite systems" )
+- Track Aircraft or ships
+
+And discarded others:
+
+- Amateur radio: broadcasting. Doesn't sound too much fun.
+- LTE / GSM : most of what I found was around "hacking" which is not quite interesting and is too detailed and probably old since these technologies move too fast
+- Radio astronomy: not my cup of tea  
+
+## Previous projects
+
+I wanted to share these ideas with the team to get feedback, references and just to show that I was actually doing something 😅
+
+
+>#status
+
+>Doing a bit of exploring around ideas for the residency project. I'm currently looking into candidate ideas for a project related to Software-defined radio SDR. Has anybody done something similar? Example projects: an aircraft carried like flightradar24.  Most applications already exist so I'm thinking the project would be around packing and using balena to distribute the app, or maybe something innovative around using a fleet? ( most apps are targeted to using 1 device )
+
+>Or something related to radio ( AM/FM ) like recreating a legacy radio using a physical knob to "move" the dial and show a graphical UI.
+
+I got back an awesome set of references!
+
+* SDR: An spectrum visualization https://hub.balena.io/gh_jaomaloy/balena-rtl-power by Jao Maloloy-on `@jaomaloy`
+
+This project has a **great** GitHub page: https://github.com/jaomaloy/balena-rtl-power/blob/main/README.md excellent intro, motivation, architecture, how tos. I hope to make mine like this one. 
+
+It uses the [rtl-power](http://kmkeen.com/rtl-power/) project ; I was playing with [rtl-fm](http://kmkeen.com/rtl-demod-guide/) from the same dev.
+
+
+* A flight traffic app on Hub here: https://hub.balena.io/ketil/balena-ads-b
+
+This is a "downloadable base station for FlightAware", using balena. Awesome. Well, this was one of my ideas ( see the notes below ) but since it already exists as a project on the balena hub, I better find something else to work on.
+
+* A Pi **traansmitter*  Cool if you want to broadcast FM! https://hub.balena.io/grokbeer/rickroll-fm https://github.com/grokbeer/rickroll-fm
+
+* Alan Boris @alab128 did a great project that allows you to use OpenWebRX to listen to some frequencies and visualize the radio spectrum, packed as a balena app https://www.balena.io/blog/running-openwebrx-on-balena-to-remotely-monitor-local-radio-spectrum/
+
+This has a great how-to page, I followed the intructions and was playing with it locally in no time
+
+
+* WAT!! A "Sound cabinet" https://balenaltd.io/rosswesleyporter/blog/make-the-extra-small-model/  This is excellent and beautiful, a cabinet where we can put the Pi. I could use this or an old radio. Or both.
+
+
+
+So that's for the references.
+
+I'm now focused on defined the project:
+
 
 ## AM/FM Radio
 
 
-Woudln't it be great to have a Raspberry Pi based AM/FM/SW radio?
+Wouldn't it be great to have a Raspberry Pi based AM/FM/SW radio?
 
 - I could start with a Pi + a SDR dongle.
 - Then connect the Pi to a speaker -> boom we have sound
@@ -73,27 +129,47 @@ Woudln't it be great to have a Raspberry Pi based AM/FM/SW radio?
 - I have several options for displays:
   - A simple frequency display with a 7-segment LED
   - A graphycal display that resembles an analog radio dial 
+- I could have "radio preset" buttons
+- I could have a "tuning level" indicator if I somehow manage to detect how far from the signal the currently selected frequency is
 
+What I like about this:
+
+- Would need to handle the input from hardware
+- I can put the Pi in an old radio cabinet 
+
+Challenges:
+
+- There's a challenge on how to change the tuning frequency. Some of the apps I've played with ( cmd line tools, openwebrx ) require you to select a frequency and run the app. But there's not input to change the frequency like you do when rorating the knob on a radio. maybe I need to import a library and work from there
+- I haven't programmed a display since I was a kid. Like in moving sprites, displaying vectors etc. Would be a nice opportunity to program on this. Also, I'm very bad at graphical design or anything related to that
+
+
+---
+
+# WIP below
 
 ### Sources of ideas and notes:
 
 A raspberry pi based radio
+
 cabinet: get a hollowed out physical old radio
-put a display on it
-	Display library for node: https://github.com/normen/rpi-oled
-	lego? https://www.raspberrypi.com/products/build-hat/
-	lcd: https://thepihut.com/collections/raspberry-pi-screens/products/adafruit-blue-white-16x2-lcd-keypad-kit-for-raspberry-pi
-	led + joystick! https://thepihut.com/collections/raspberry-pi-screens/products/adafruit-128x64-oled-bonnet-for-raspberry-pi-ada3531
-	more displays on https://thepihut.com/pages/search-results?q=ssd1306&page_num=2
-		like: 
-enhance audio output: https://www.adafruit.com/product/1475
-knob:
-	https://www.adafruit.com/product/377
-	from https://gist.github.com/savetheclocktower/9b5f67c20f6c04e65ed88f2e594d43c1
+
+```
+  put a display on it
+  	Display library for node: https://github.com/normen/rpi-oled
+  	lego? https://www.raspberrypi.com/products/build-hat/
+  	lcd: https://thepihut.com/collections/raspberry-pi-screens/products/adafruit-blue-white-16x2-lcd-keypad-kit-for-raspberry-pi
+  	led + joystick! https://thepihut.com/collections/raspberry-pi-screens/products/adafruit-128x64-oled-bonnet-for-raspberry-pi-ada3531
+  	more displays on https://thepihut.com/pages/search-results?q=ssd1306&page_num=2
+  		like: 
+  enhance audio output: https://www.adafruit.com/product/1475
+  knob:
+  	https://www.adafruit.com/product/377
+  	from https://gist.github.com/savetheclocktower/9b5f67c20f6c04e65ed88f2e594d43c1
 
   It could play local AM and FM radio, AND also internet radio. All in one!
       we can apply filters
       we can do an "auto-tune" feature
+```
 
 ## Aircraft tracker
 
@@ -132,7 +208,7 @@ apple tags clone to locate stuff/toys lost in the house
 ## GPS
 
 GPS
-	there was a guy somewhere who created its own GPS from Radio
+	there was a guy somewhere on the web who created its own GPS from Radio
 	seems complex
 	GPS + SDR
 		https://www.rtl-sdr.com/rtl-sdr-tutorial-gps-decoding-plotting/
