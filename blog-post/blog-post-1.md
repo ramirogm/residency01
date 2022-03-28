@@ -70,11 +70,64 @@ _Note: that the links I've added are from the devices I've tested, and as you'll
 
 ### Steps
 
-1) Wiring
+#### Wiring
 
 For the full version, you need to wire the components according to the following diagram. If you change the GPIO pins take note so that you can later update the config using fleet variables or directly on `docker-compose.yaml`.
 
 ![component diagram](./finradio-v0.0.3_bb.png)
+
+#### Prototype
+
+This is how it actually looks once you finish the wiring. This is the setup I used while developing the app:
+
+![prototype](./images/proto-1.png)
+
+
+#### Final case
+
+I'm still working on putting all the components inside a case so that it can be used as a "regular" radio. Here are some pictures of the WIP:
+
+<table>
+  <tr>
+    <td>
+        <img height="400px" src="./images/case-wip-000.png" alt="WIP1" style="max-width: 100%; margin: 0px 4px;">
+    </td>
+    <td>Radio case to-be
+    </td>
+  </tr>
+  <tr>
+    <td>
+        <img height="400px" src="./images/case-wip-001.png" alt="WIP1" style="max-width: 100%; margin: 0px 4px;">
+    </td>
+    <td>Hopefully I'll be able to use these speakers
+    </td>
+  </tr>
+  <tr>
+    <td>
+        <img height="400px" src="./images/case-wip-1.png" alt="WIP1" style="max-width: 100%; margin: 0px 4px;">
+    </td>
+    <td>Taking out the bottom
+    </td>
+  </tr>
+  <tr>
+    <td>
+        <img height="400px" src="./images/case-wip-2.png" alt="WIP1" style="max-width: 100%; margin: 0px 4px;">
+    </td>
+    <td>One knob in place
+    </td>
+  </tr>
+
+</table>
+
+
+As you can see I still need to keep working on this:
+
+- Make room to put the display
+- Wire the knobs and display
+- Put the Pi + USB dongle
+- Place the antenna
+- Connect the speakers
+  
 
 ## Running
 
