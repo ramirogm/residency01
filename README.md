@@ -1,5 +1,6 @@
 # residency01
 
+
 ## Residency intro
 
 During my first month on balena I'll be doing a residency on the balenaLabs team. This means that I can choose any project I want and have a month to develop it! The main goal of the project is to do the onboarding process ( get acquainted with the way things work around here ) in a fun and productive way. 

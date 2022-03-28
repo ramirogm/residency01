@@ -1,0 +1,11 @@
+blog post references
+
+
+https://www.balena.io/blog/build-heartrate-monitor-using-raspberry-pi-and-balena/
+
+https://www.balena.io/blog/how-i-built-a-video-game-prototype-with-custom-hardware-and-balena/
+
+https://www.balena.io/blog/build-one-or-many-robots-balena-ros-tech-stack-block/
+
+https://www.balena.io/blog/build-self-hosted-voice-controlled-mood-tracker-rhasspy-balena/
+
