@@ -38,7 +38,7 @@ FinRadio - that's the name of our radio - encompasses a hardware side ( board, S
 
 **FIXME**: _add the keyboard as an alternative input on the diagram_
 
-![component diagram](./FinRadio_v0.0.2.drawio.png)
+![component diagram](./images/FinRadio_v0.0.2.drawio.png)
 
 ## Building the Radio
 
@@ -74,7 +74,7 @@ _Note: that the links I've added are from the devices I've tested, and as you'll
 
 For the full version, you need to wire the components according to the following diagram. If you change the GPIO pins take note so that you can later update the config using fleet variables or directly on `docker-compose.yaml`.
 
-![component diagram](./finradio-v0.0.3_bb.png)
+![wiring](./images/finradio-v0.0.3_bb.png)
 
 #### Prototype
 
